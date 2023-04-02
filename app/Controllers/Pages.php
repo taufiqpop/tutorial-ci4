@@ -9,9 +9,7 @@ class Pages extends BaseController
         $data = [
             'title' => 'Home | Pop Website'
         ];
-        echo view('layout/header', $data);
-        echo view('pages/home');
-        echo view('layout/footer');
+        return view('pages/home', $data);
     }
 
     public function about()
@@ -19,8 +17,26 @@ class Pages extends BaseController
         $data = [
             'title' => 'About Me'
         ];
-        echo view('layout/header', $data);
-        echo view('pages/about');
-        echo view('layout/footer');
+        return view('pages/about', $data);
+    }
+
+    public function contact()
+    {
+        $data = [
+            'title' => 'Contact Us',
+            'alamat' => [
+                [
+                    'tipe' => 'Rumah',
+                    'alamat' => 'Jl. i saja dulu',
+                    'kota' => 'Klaten'
+                ],
+                [
+                    'tipe' => 'Kantor',
+                    'alamat' => 'Jl. Kenangan',
+                    'kota' => 'Surakarta'
+                ]
+            ]
+        ];
+        return view('pages/contact', $data);
     }
 }
